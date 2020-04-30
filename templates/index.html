@@ -3,16 +3,85 @@
 <html lang="es">
 <head>
   <meta charset="utf-8">
-
-  <title>The HTML5 Herald</title>
-  <meta name="description" content="The HTML5 Herald">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Descripción de la página">
   <meta name="author" content="SitePoint">
 
+  <title>Rincón Azteca</title>
+  
   <link rel="stylesheet" href="../css/main.css">
+  <link rel="shortcut icon" href="../imgs/favicon.png">
 
 </head>
 
 <body>
+  <hr>
+  <header>
+    <img src="../imgs/favicon.png">
+    <nav>
+      <ul>
+          <li><a href="#">Home</a>
+            <ol>
+              <li><a href="#sec1">item 1</a></li>
+            </ol>
+            <ol>
+              <li><a href="#sec2">item 2</a></li>
+            </ol>
+          </li> 
+          <li><a href="acerca.html">About</a></li> 
+          <li><a href="contacto.html">Contact</a></li>
+          <li><a href="https://cisco.com" target="_blank">Cisco</a></li>
+          <li><a href="https://xataka.com">Xataka</a></li>
+      </ul> 
+    </nav>
+  </header>
+
+  <hr>
+  <main>
+    <h1>Bienvenido a tu mejor opcion</h1>
+      <!-- 3W dice que para subtitulo usa <p> despues del <h1> -->
+        <article>
+            <section>
+              <p>Como una entrada de blog</p>
+            </section>
+            <section>
+              <p>Suponiendo que este cacho de contenido sea my largo se pueden crear secciones del mismo</p>
+            </section>
+        </article>
+        <aside>PROMOCION Aqui va un widget para redes sociales, es contenido no relacionado.</aside>
+          <figure>
+              <pre> <!--Respeta TABS espacios como el """ """ en python-->
+                    <code>
+                      SELECT * FROM tabla WHERE id 
+                    </code>
+                </pre>
+              <figcaption>Sentencia sql</figcaption>
+          </figure>
+          <div id="sec1">
+            Etiqueta que no significa nada 
+          </div>
+          <span>
+            Etiqueta que no significa nada
+          </span>
+        <hr>
+          <h2 id="sec2">HR para cambio de contenido, ejemplo, conclusion de un relato. </h2>
+          <p>Conclusion lalalalalalalalalalala</p>
+        <blockquote>
+          Citas o como lo que hace xataka cuando resalta un pedazo de su propio texto.
+        </blockquote>
+  </main>
+  <hr>
+  <footer>
+    <p>Footer Derechos reservados</p>
+  </footer>
   <script src="../js/scripts.js"></script>
 </body>
 </html>
+
+<!--
+<dl> Definition List->
+  <dt>Nombre concepto</dt> <!--Definition Term->
+  <dd>Significado de concepto</dd><!--Definition Description->
+  <dt>País</dt>
+  <dd>Capital</dd>
+</dl>-->
