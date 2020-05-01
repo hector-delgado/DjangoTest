@@ -4,8 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="../css/main.css"
 </head>
 <body>
+    <dialog id="modal">
+        <h2>Curso HTML 5</h2>
+        <p>Precio $$$</p>
+        <p>Yo</p>
+        <button id="close">Cerrar</button>
+    </dialog>
+    <button id="btn">Modal</button>
     <a href="index.html">Index</a>
     <article>
         Muy similares
@@ -17,9 +25,87 @@
         <span>span</span>
         <span>span</span>
     </div>
-    <div>div
+    <aside>
+        <div>
+            <video width="250px" height="500px" controls autoplay poster="../imgs/favicon.png" src="../vids/instagramScroll.mp4">
+                <!-- <source src="../vids/instagramScroll.mp4"/>
+                Existen dos opciones para declarar el source-->
+            </video>
+            <!-- <audio src="" controls autoplay>
+
+            </audio> -->
+
+            <details>
+                <summary>HTML</summary>
+                <p>Lenguaje...</p>
+                <p>Se creo en 1989</p>
+            </details>
+
+           
+
+        </div>
+    </aside>
+    <div>
         <span>span</span>
         <span>span</span>
+
+        <div class="tabla">
+            <table border="1">
+                <caption>Deportes</caption>
+                <colgroup>
+                    <col>
+                    <col>
+                    <col style="background-color: blue;">
+                    <!--Either I can use only:
+                    <col span="2">
+                    <col style="red">-->
+                </colgroup>
+
+                <tr>
+                    <thead>
+                        <th>Lunes</th>
+                        <th>Martes</th>
+                        <th>Miercoles</th>
+                    </thead>
+                </tr>
+                <tr>
+                    <tbody>
+                        <td rowspan="2">Correr</td>
+                        <td>Nadar</td>
+                        <td>Caminar</td>
+                    </tbody>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td colspan="2">espacio</td>
+                </tr>
+                <tr>
+                    <td colspan="3">Total</td>
+                </tr>
+                <tr>
+                    <tfoot>
+                        <td>10K</td>
+                        <td>3k</td>
+                        <td>5k</td>
+                    </tfoot>
+                </tr>
+            </table>
+        </div>
+
     </div>
+
+    <script>
+        const btn = document.getElementById('btn');
+        const close= document.getElementById('close');
+        const modal = document.getElementById('modal');
+        btn.addEventListener('click',() => {
+            modal.setAttribute('open', 'true')
+        })
+
+        close.addEventListener('click',() =>{
+            modal.removeAttribute('open')
+        })
+    </script>
 </body>
 </html>
+<!-- ctrl+k ctrl+c comentario -->

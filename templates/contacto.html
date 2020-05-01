@@ -29,5 +29,25 @@
             </ol>
         </li>
     </ul>
+
+    <!--
+    <img src="../imgs/RA-serviciodomicilio.jpg"
+    srcset="../imgs/favicon.png 1x, ../imgs/RA-cafeolla.jpg 3x"
+    alt="Imagen por densidad de pixeles">
+        -->
+    <picture>
+        <source srcset="../imgs/RA-cafeolla.jpg" media="(min-width:800px)">
+        <source srcset="../imgs/RA-serviciodomicilio.jpg" media="(min-width:500px)">
+        <img src="../imgs/favicon.png">
+    </picture>
+<!--Microdatos o datos estructurados-->
+    <article itemscope itemtype="http://schema.org/Blog">
+        <h2>Historia del Rincón</h2>
+        <p>Hace un par de años...</p>
+        <footer>
+            <p itemprop="author">Arellano</p>
+        </footer>
+
+    </article>
 </body>
 </html>

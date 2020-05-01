@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+    <link rel="stylesheet" href="../css/main.css">
+</head>
+<body>
+    <h1>Formulario</h1>
+    <form>
+            <fieldset>
+              <legend>Nombre completo</legend>
+                <div>
+                    <label>
+                        Nombre:
+                        <input type="text" name="username">
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        Apellido:
+                        <input type="text" name="username">
+                    </label>
+                </div>
+                <p>Año favorito</p>
+                    <label><input type="checkbox">1998</label>
+                    <label><input type="checkbox">1999</label>
+                    <label><input type="checkbox">2000</label>
+                <div>
+                    <label><input name="gender" type="radio">Hombre</label>
+                    <label><input name="gender" type="radio">Mujer</label>
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>Nacionalidad</legend>
+
+                <select name="country" id="country">
+                    <optgroup label="País">
+                        <option value="Perú">Perú</option>
+                        <option value="México">México</option>
+                        <option value="Colombia">Colombia</option>
+                    </optgroup>
+                    <optgroup label="Otros">
+                        <option value="Prú">Peú</option>
+                        <option value="Méico">Méico</option>
+                        <option value="Colmbia">Coombia</option>
+                    </optgroup>
+                </select>
+            </fieldset>
+
+            <fieldset>
+                <legend>Más cosas</legend>
+            <div>
+                <label>
+                    Nombre:
+                    <input type="text" name="username">
+                </label>
+            </div>
+            <div>
+                <!-- <label>
+                    Apellido:
+                    <input type="text" name="username">
+                </label> -->
+                <input type="text" name="last_name" placeholder="Apellidos">
+            </div>
+            <div>
+            <label>
+                Password:
+                <input type="password" name="password" required>
+            </label>
+
+            <div>
+                <label>
+                    Correo:
+                    <input type="email" name="" id="" required>
+                </label>
+            </div>
+            <div>
+                <label>
+                    Fecha:
+                    <input type="date" name="" id="">
+                </label>
+            </div>
+            <div>
+                <label>
+                    Numero:
+                    <input type="number" name="" id="">
+                </label>
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>Comentario</legend>
+            <textarea name="" id="" cols="30" rows="10"></textarea>
+        </fieldset>
+        <fieldset>
+            <legend>Articulos comprados (No modificable)</legend>
+            <label>
+                <div>
+                    <input type="number" value="2" readonly>
+                </div>
+            </label>
+        </fieldset>
+            <!-- <button>Send</button> Casi no se usa-->
+            <div>
+                <input type="submit" value="Iniciar Sesión">
+            </div>    
+        </div>
+    </form>
+</body>
+</html>
+
+<!-- Uso de atributo required para que a fuerza lo deba poner -->
