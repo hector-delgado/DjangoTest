@@ -268,3 +268,46 @@ demo();
 // mantener el contexto en this, es mejor usar => para mantener 
 // this con el contexto del a primera y así concervara los atrubutos 
 // de la primera
+
+//Funciones Call Apply y Bind 
+
+let subarreglo = [1,2]
+let arreglo = [1,2,3,4,5,"string",subarreglo];
+
+for (let i = 0; i < arreglo.length; i++) {
+    console.log(arreglo[i]);   
+}
+
+arreglo.forEach(function(elemento){
+    console.log(elemento);
+});
+
+arreglo = arreglo.filter(function(el){
+    return el != 2;
+})
+
+arreglo2 = arreglo.filter((el)=> el != 4);
+
+console.log(arreglo)
+console.log(arreglo2)
+
+let encontrar = arreglo.find(el => el==4);
+console.log(encontrar);
+
+let numeros0 = ["1","23","90","46"];
+
+numeros0 = numeros0.map(numero => parseInt(numero));
+console.log(numeros0);
+
+//JSON Javascript Sintax Object Notation
+
+let curso = {
+    titulo: 'Curso Profesional de JS',
+    duracion: 3.5,
+    bloque: ['Un','Arreglo'],
+    inscribir: function(usuario){console.log('Estas inscrito');}
+}
+
+console.log(curso.titulo);
+
+curso.inscribir('Héctor');
