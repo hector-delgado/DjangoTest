@@ -211,103 +211,274 @@ usables en todo lo que la funcion contenga no solo en un bloque.
 //Parametro el que se espera
 //Los parametros no tiene tipo, puedes mandar int o string etc, sin problemas
 
-function suma(parametro_el_num = 0) {
-    return parametro_el_num + parametro_el_num;
-}
-
-//Argumento el que se envia.
-//Podemos no enviar nada o muchos mas de lo que se piden
-//Se hace undefinied (podemos definirla para evitar bugs) y NaN
-//Restriccion al poner valores default
-//Los que tinene deben ir despues de loa que no.
-//ejemplo
-// function hola(nombre = "",apellido){} MAL
-// function hola(apellido,nombre = ""){} BIEN
-
-// suma(50);
-
-// //JS es flexible con la cantidad de argumentos que le pueden enviar a una funcion
-
-// function sumaTodosLosQueQuieras(){
-//     return arguments[0] + arguments[1] + arguments[2]
+// function suma(parametro_el_num = 0) {
+//     return parametro_el_num + parametro_el_num;
 // }
 
-// console.log(sumaTodosLosQueQuieras(1,2,5,6,7));
+// //Argumento el que se envia.
+// //Podemos no enviar nada o muchos mas de lo que se piden
+// //Se hace undefinied (podemos definirla para evitar bugs) y NaN
+// //Restriccion al poner valores default
+// //Los que tinene deben ir despues de loa que no.
+// //ejemplo
+// // function hola(nombre = "",apellido){} MAL
+// // function hola(apellido,nombre = ""){} BIEN
+
+// // suma(50);
+
+// // //JS es flexible con la cantidad de argumentos que le pueden enviar a una funcion
+
+// // function sumaTodosLosQueQuieras(){
+// //     return arguments[0] + arguments[1] + arguments[2]
+// // }
+
+// // console.log(sumaTodosLosQueQuieras(1,2,5,6,7));
 
 
-// function ejectar_otra(funcion) {
+// // function ejectar_otra(funcion) {
+// //     funcion();    
+// // }
+
+// // function hola() {
+// //     console.log("Hola");
+// // }
+
+// // ejectar_otra(hola);
+
+// function executor(funcion) {
 //     funcion();    
 // }
 
-// function hola() {
+// executor(function(){
 //     console.log("Hola");
+// });
+
+// //Funciones, variables son ciudadanos de primera clase
+// //es decir se puede enviar como argumentos
+
+// //Checar this o contexto.
+
+// //Arrow Function
+// let demo = () =>{
+//     console.log("Arrow fuction");
+// }
+// demo();
+
+// //Su mandamos llamar una funcion dentro de otra y queremos 
+// // mantener el contexto en this, es mejor usar => para mantener 
+// // this con el contexto del a primera y así concervara los atrubutos 
+// // de la primera
+
+// //Funciones Call Apply y Bind 
+
+// let subarreglo = [1,2]
+// let arreglo = [1,2,3,4,5,"string",subarreglo];
+
+// for (let i = 0; i < arreglo.length; i++) {
+//     console.log(arreglo[i]);   
 // }
 
-// ejectar_otra(hola);
+// arreglo.forEach(function(elemento){
+//     console.log(elemento);
+// });
 
-function executor(funcion) {
-    funcion();    
+// arreglo = arreglo.filter(function(el){
+//     return el != 2;
+// })
+
+// arreglo2 = arreglo.filter((el)=> el != 4);
+
+// console.log(arreglo)
+// console.log(arreglo2)
+
+// let encontrar = arreglo.find(el => el==4);
+// console.log(encontrar);
+
+// let numeros0 = ["1","23","90","46"];
+
+// numeros0 = numeros0.map(numero => parseInt(numero));
+// console.log(numeros0);
+
+// //JSON Javascript Sintax Object Notation
+
+// let curso = {
+//     titulo: 'Curso Profesional de JS',
+//     duracion: 3.5,
+//     bloque: ['Un','Arreglo'],
+//     inscribir: function(usuario){console.log('Estas inscrito');}
+// }
+
+// console.log(curso.titulo);
+
+// curso.inscribir('Héctor');
+
+// //Alternativa a la notacion JSON funciones constructoras
+// //PARECIDO a clase
+
+// function Curso(){
+//     //Usando this podemos definir propiedades (atributos, metodos) del objeto
+//     this.titulo = "Curso profesional de JS"
+
+//     //Podemos crear las mismas propiedades que ocn notracion JSON.
+//     this.inscribir= function(){
+//         console.log("Estas inscrito. Bienvenido");
+//     }
+// }
+
+// //Ya esta la pseudoclase o mejor dicho el objeto, falta asignarlo
+// //Asignarlo es mediante la parala new igualando a una variable
+
+// let cursoPro = new Curso();
+
+// //Para acceder a sus atributos y metodos:
+// cursoPro.inscribir();
+
+
+
+// /* Podemos crear un objeto  que reciba parametros*/
+// //Objeto en primera mayus
+// function CursoConNombre(nombre){
+//     //Usando this podemos definir propiedades (atributos, metodos) del objeto
+//     this.titulo = "Curso profesional de JS, nuevo alumno: "+ nombre;
+
+//     //Podemos crear las mismas propiedades que ocn notracion JSON.
+//     this.inscribir= function(){
+//         console.log("Estas inscrito. Bienvenido");
+//     }
+// }
+
+// //Ya esta la pseudoclase o mejor dicho el objeto, falta asignarlo
+// //Asignarlo es mediante la parala new igualando a una variable
+
+// let cursoConNombre = new CursoConNombre('Héctor');
+
+// //Para acceder a sus atributos y metodos:
+// console.log(cursoConNombre.titulo);
+
+// //CLASES NO EXISTE pero se pueden usar WEIRD, realmente son objetos como los anteriores pero diferente sintaxis
+// //Class declaration
+// class Usuario{
+
+//     constructor(titulo){ // constructor tipo __init__ en python
+//         this.titulo = titulo;
+//     }
+
+//     usr(usuario){
+//         console.log(usuario + " te has inscrito");
+//     }
+// }
+
+// let jsUsr = new Usuario("Curso JS");
+
+// console.log(jsUsr.titulo);
+
+// jsUsr.usr('Héctor');
+
+// //Cada objeto es una instancia de la clase de donde se creo.
+
+// class Curso{
+//     //Es lo mismo que cualquier otro mertodo pero este se activa solo.
+//     //Los parametros funcionan igual a otras funciones
+
+//     constructor(titulo, duracion, color = 'red'){
+//         //arguments se puede usar.
+//         this.titulo = titulo;
+//         this.duracion = duracion;
+//         this.color = color;
+
+//     }
+// }
+
+// //Herencias en orientacion a objetos
+
+// //Clase Padre:
+// class Player{
+//     play(){ this.video.play();}
+//     duration(){return this.video.duration/100;}
+// }
+
+// //Clases que van a heredar
+// class Vimeo extends Player{
+//     open(){this.redirectToVimeo(this.video);}
+// }
+
+// class Youtube extends Player{
+//     open(){this.redirectToYoutube(this.video)}
+// }
+
+// let video = new Youtube();
+
+// //Existen clases ya disponibles para heredar como array y date
+// class CustomDate extends Date{}
+// class Coleccion extends Array{}
+
+// // Tambien podemos extender de funciones contructoras
+// //Recordar que funciones constructoras crean objetos alternativamnete a JSON
+// //Y recordemo sque las clases no existen realmente solo es una sintaxis espacial para crear un objeto
+// //Por la tanto se era basicamnete de objeto a objeto.
+// function User(){}
+// class Admin extends User{}
+
+
+// //En Herencia podemos usar el termino override
+
+// class User{
+//     constructor(nombre){
+//         this.nombre = nombre;
+//     }
+//     saludar(){
+//         console.log("Hola "+ this.nombre);
+//     }
+// }
+
+// class Admin extends User{
+//     constructor(nombre){
+//         super(nombre);
+//     }
+
+//     saludar(){
+//         super.saludar();//metodo para agarrar propiedades de la clase padre
+//         console.log("Aquí esta el panel de admin");
+//     }
+// }
+
+// let admin = new Admin("Héctor");
+
+// admin.saludar();
+
+// //Metodos accesores
+// class Usuario{
+//     constructor(nombre){this._name = nombre;}
+
+//     static create(){}
+
+//     get name(){
+//         return this._name.chartAt(0).toUpperCase() + this._name.slice(1);
+//     }
+
+//     set name(nombre){
+//         this._name = nombre;
+//     }
+// }
+
+// let user = new Usuario("Héctor");
+
+// user.name = "Abiel"
+
+// console.log(user.name);
+
+//METODOS ESTATICOS
+class Usuario{
+    constructor(permisos = "Lectura"){this.permisos = permisos; }
+
+    static createAdmin(){ // Este moetodo puede ser ejecutado o llamado
+        let user = new Usuario("administrador");
+        return user;
+    }
 }
 
-executor(function(){
-    console.log("Hola");
-});
+let administrador = Usuario.createAdmin(); //Se accede al metodo usando dirtectamente la clase ". (punto)" y el nombre del metodo
+                                            //Vemos que no debo crear primero un objeto de la clase, directamnte usao la clase y el metodo.
 
-//Funciones, variables son ciudadanos de primera clase
-//es decir se puede enviar como argumentos
+//PROTOTIPOS
 
-//Checar this o contexto.
-
-//Arrow Function
-let demo = () =>{
-    console.log("Arrow fuction");
-}
-demo();
-
-//Su mandamos llamar una funcion dentro de otra y queremos 
-// mantener el contexto en this, es mejor usar => para mantener 
-// this con el contexto del a primera y así concervara los atrubutos 
-// de la primera
-
-//Funciones Call Apply y Bind 
-
-let subarreglo = [1,2]
-let arreglo = [1,2,3,4,5,"string",subarreglo];
-
-for (let i = 0; i < arreglo.length; i++) {
-    console.log(arreglo[i]);   
-}
-
-arreglo.forEach(function(elemento){
-    console.log(elemento);
-});
-
-arreglo = arreglo.filter(function(el){
-    return el != 2;
-})
-
-arreglo2 = arreglo.filter((el)=> el != 4);
-
-console.log(arreglo)
-console.log(arreglo2)
-
-let encontrar = arreglo.find(el => el==4);
-console.log(encontrar);
-
-let numeros0 = ["1","23","90","46"];
-
-numeros0 = numeros0.map(numero => parseInt(numero));
-console.log(numeros0);
-
-//JSON Javascript Sintax Object Notation
-
-let curso = {
-    titulo: 'Curso Profesional de JS',
-    duracion: 3.5,
-    bloque: ['Un','Arreglo'],
-    inscribir: function(usuario){console.log('Estas inscrito');}
-}
-
-console.log(curso.titulo);
-
-curso.inscribir('Héctor');
