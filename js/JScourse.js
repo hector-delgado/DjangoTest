@@ -467,18 +467,98 @@ usables en todo lo que la funcion contenga no solo en un bloque.
 
 // console.log(user.name);
 
-//METODOS ESTATICOS
-class Usuario{
-    constructor(permisos = "Lectura"){this.permisos = permisos; }
+// //METODOS ESTATICOS
+// class Usuario{
+//     constructor(permisos = "Lectura"){this.permisos = permisos; }
 
-    static createAdmin(){ // Este moetodo puede ser ejecutado o llamado
-        let user = new Usuario("administrador");
-        return user;
-    }
+//     static createAdmin(){ // Este moetodo puede ser ejecutado o llamado
+//         let user = new Usuario("administrador");
+//         return user;
+//     }
+// }
+
+// let administrador = Usuario.createAdmin(); //Se accede al metodo usando dirtectamente la clase ". (punto)" y el nombre del metodo
+//                                             //Vemos que no debo crear primero un objeto de la clase, directamnte usao la clase y el metodo.
+
+// //PROTOTIPOS
+// /* Lenguaje orientado a prototipos  
+// No existen clases
+// Los objetos se crean a partir de otros objetos
+// Pueden hederar entre ellos
+
+// En clases se crea un instructivo de como hacer algo ejemplo escaleras
+// Y posees una clase con sus atributos
+// Al crear objetos instanceados de esa clase llenas los atributos. A partir de ese instructivo se crean tantas escaleras como deseemos
+// Si deseas crear un nuevo tipo de escalera creas una nueva clase.
+// Las escaleeras se crean de un instructivo y no de otra escalera.
+
+
+// Con prototipos los instructivos no existen, se crea un objeto y si quieres más se hacen clones y modificas los clones. Las escaleras se crean de otras escaleras
+// */
+
+
+// Metodo __proto__ existente en cada objeto JSON, nos dice su procedencia, en este caso cada objeto creado viene del objeto Object
+// let user = {nombre: "Héctor"}
+
+// console.log(typeof(user));
+
+// console.log(user.__proto__);
+
+// //Herencia de prototipos
+// let animal = Object.create(null); //Objeto vacio por el null
+
+// animal.vivo = true;
+
+// animal.estaVivo = function(){
+//     if (this.vivo) {
+//         console.log("Sigue vivo");
+//     }
+// }
+
+// let perro = Object.create(animal);//Este objeto usa Object.create para heredar las propiedades de animal.
+
+// perro.estaVivo();
+// console.log(perro.edad);//Si no existen en perro, lo busca en animal y si tampoco esta nos da un undefinied.
+
+// // Funciones en JS tienen una propiedad prototype, que es igual al propiedad __proto__ que se crean a partir de esa funcion
+// //Prototype permite agregar propiedades al objeto para que este accesible para todos sus objetos clon.
+
+// function User(){}
+
+// User.prototype.saludar = function (){
+//     console.log("Hola");
+// }
+
+// function Admin(){}
+
+// Admin.prototype = new User();
+
+// let uriel = new Admin();
+
+// uriel.saludar();
+
+
+
+
+
+/* Programacion Asincrona*/
+/*Event loop, message queue como funciona JS
+Operaciones tardadas se consideran si el proceso tarda mas de 10ms*/
+
+//CALLBACKS
+
+
+
+//SPREAD OPERATOR
+
+let numeros = [2,3,5];
+let numeross = ['hola','mundo'];
+
+function sumar(n1,n2,n3){
+    return n1 + n2 + n3;
 }
 
-let administrador = Usuario.createAdmin(); //Se accede al metodo usando dirtectamente la clase ". (punto)" y el nombre del metodo
-                                            //Vemos que no debo crear primero un objeto de la clase, directamnte usao la clase y el metodo.
+let resultado = sumar.apply(this,numeros);
 
-//PROTOTIPOS
 
+console.log([2, ...numeross,3]);
