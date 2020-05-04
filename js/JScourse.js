@@ -549,16 +549,85 @@ Operaciones tardadas se consideran si el proceso tarda mas de 10ms*/
 
 
 
-//SPREAD OPERATOR
+// //SPREAD OPERATOR
 
-let numeros = [2,3,5];
-let numeross = ['hola','mundo'];
+// let numeros = [2,3,5];
+// let numeross = ['hola','mundo'];
 
-function sumar(n1,n2,n3){
-    return n1 + n2 + n3;
-}
+// function sumar(n1,n2,n3){
+//     return n1 + n2 + n3;
+// }
 
-let resultado = sumar.apply(this,numeros);
+// let resultado = sumar.apply(this,numeros);
 
 
-console.log([2, ...numeross,3]);
+// console.log([2, ...numeross,3]);
+
+// //FOR of
+
+// function saludaATodos(){
+//     for (nombre of arguments) { //Itera en elementos iterables (cadenas, etc) 
+//         console.log('Hola '+nombre);
+//     }
+// }
+
+// saludaATodos('Héctor', 'CF', 'Alumnos');
+
+// //FOR in
+// //Itera en las propiedades que un objeto tiene y que a su vez estan sean iterables tambien.
+
+// let Usuario = {
+//     nombre: 'Héctor',
+//     edad: 20
+// }
+
+// for (propiedades in Usuario) {
+//     console.log(propiedades);
+// }
+
+
+//FUNCIONES ASINCRONAS
+// async function sum(n1,n2){//Palabra reservada async
+//     return n1+n2; //Siempre retornan una promesa sin importar el cuerpo de la funcion
+// }//Fundamentalmente el unic cambio de una syncrona y una asyncrona es que podemos usar await
+// //retorna una promesa ya resuleta con el resultado de la funcion
+
+// // AWAIT
+// // Lo que hace await es esperar a que la ejecucion de el codigo termine la promesa, evitando tener que poner .then
+
+// (async function(){
+
+//     let resultado = await new Promise((resolve,reject)=>{
+//         setTimeout(resolve,400,5)
+//     });
+
+//     let resultadoDos = await new Promise((resolve,reject)=>{
+//         setTimeout(resolve,400,5)
+//     });
+
+//     console.log(resultado + resultadoDos);
+    
+// })();
+
+
+//EJEMPLO USO REAL
+// async function showGitHubInfo(){
+//     let response = await fetch('https://api.github.com/users/hector-delgado/repos');
+//     let repos = await response.json();
+//     console.log(repos);
+// }
+
+// showGitHubInfo();
+
+//ERRORES EN PROMESAS USANDO AWAIT EN ASYN FUNCTION
+// (async function(){
+//     try {
+//        let promesa = await Promise.reject("ERROR");
+//        let promes1 = await Promise.reject("ERROR"); 
+
+//     } catch (err) {
+//         console.log(err);
+        
+//     }
+    
+// })()
